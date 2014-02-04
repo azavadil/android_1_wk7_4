@@ -223,7 +223,7 @@ public class MainActivity extends Activity {
 		
 		// make sure that the path exists. if the directory doesn't exist its created  
 		path.mkdirs();
-		String filename = "Imagen.jpg"; 
+		String filename = "Imagen_" + System.currentTimeMillis() + ".jpg"; //create unique filename
 		
 		File file = new File(path, filename); 
 		
@@ -238,7 +238,12 @@ public class MainActivity extends Activity {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			Log.e(TAG, "saveAndShare (compressing)", e);
+			return; // we don't want to continue if there was an erro
 		} 
+		
+		
+		
+		
 		// In order for the image to appear in the gallery we have to notify the media
 		// scanner
 		// for the second parameter the scanner needs a Uri  
